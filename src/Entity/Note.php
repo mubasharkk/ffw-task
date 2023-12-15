@@ -24,10 +24,11 @@ class Note
     #[ORM\Column(type: UuidType::NAME, unique: true)]
     #[ORM\GeneratedValue(strategy: 'CUSTOM')]
     #[ORM\CustomIdGenerator(class: 'doctrine.uuid_generator')]
+    #[Groups('read')]
     private Uuid $id;
 
     #[ORM\Column(type: Types::STRING, length: 200)]
-    #[Groups('write')]
+    #[Groups(['read', 'write'])]
     public string $headline;
 
     #[ORM\Column(type: Types::STRING, length: 255)]
@@ -35,7 +36,7 @@ class Note
     public string $slug;
 
     #[ORM\Column(type: Types::TEXT)]
-    #[Groups('write')]
+    #[Groups(['read', 'write'])]
     private ?string $content;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
