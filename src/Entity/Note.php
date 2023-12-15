@@ -10,7 +10,6 @@ use Symfony\Bridge\Doctrine\Types\UuidType;
 use Symfony\Component\Serializer\Attribute\Groups;
 use Symfony\Component\Uid\Uuid;
 
-
 #[ORM\Entity(repositoryClass: NotebookRepository::class)]
 #[ORM\HasLifecycleCallbacks]
 #[ApiResource(
