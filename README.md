@@ -7,6 +7,9 @@
   * I have used a `api-platform/core`.
 * As I haven't worked with symfony for some time already. I have tried to keep it simple. 
 * I could have created a entity repository and controllers, but they would be doing the exact same thing with addition code.
+* As I haven't worked with Symfony for quite sometime so there was a bigger learning curve as it has changed a lot.
+* **Time Consumed:** ~ 04:45
+* I have added only 2 simple test cases to avoid extra time consumption.
 
 
 ## Files to assess:
@@ -40,7 +43,5 @@ docker exec -it ffw-task-php-1 php bin/console doctrine:schema:update --force
 ### Running tests
 
 ```
-./vendor/bin/sail artisan test
-
-./vendor/bin/sail artisan test tests/Feature/TestOrdersApiEndpoints.php
+docker exec -it ffw-task-php-1 php bin/phpunit
 ```
