@@ -11,17 +11,17 @@ use Symfony\Component\Routing\Annotation\Route;
 #[AsController]
 class NotebookController extends AbstractController
 {
-    #[Route('api/notes/slug/{slug}')]
-    public function __invoke(string $slug, NotebookRepository $repo)
+    #[Route('api/notes/slug/{id}')]
+    public function __invoke(string $id, NotebookRepository $repo)
     {
-        $note = $repo->findBy(['slug' => $slug]);
+        $note = $repo->findBy(['slug' => trim($id)]);
 
         if (!$note) {
             throw $this->createNotFoundException(
-                'No superhero found for this slug'
+                'No note found for this slug'
             );
         }
 
-        return $this->json($note);
+        return $this->json($note[0]);
     }
 }
